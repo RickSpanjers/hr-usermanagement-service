@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  application:
+    name: user-management-service
+  cloud:
+    config:
+      uri:
+      username:
+      password:
+
+---
+
+spring:
+  profiles: prod
+  application:
+    name: user-management-service
+  cloud:
+    config:
+      uri:
+      username:
+      password:
+
+---
+
+spring:
+  profiles: test
+  application:
+    name: user-management-service
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration, org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+  cloud:
+    discovery:
+      enabled: false
+    config:
+      enabled: false
+
+jwt:
+  secret: testPurpose
